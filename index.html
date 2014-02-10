@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
+
 <style>
 	body{background-image:url('http://www.hiram-partners.com/images/common/main_contents.jpg');font-family:Constantia, Helvetica, sans-serif; font-size:22px;}
 	#container{width:auto; margin:0 auto; repeat-x; height:auto; padding:15px;}
@@ -13,28 +14,27 @@
 	#header .rt-box{text-align:right;}
 	#header .lt-box, #header .rt-box, #content-box .lt-box, #content-box .rt-box{width:49%;}
 	.lbl-txt{font-size:15px; color:#666;display:block; color:#000000;}
-	#map-canvas{width:500px; height:300px;}
+	#map-canvas{width:360px; height:300px;}
 	#temperature{padding-left:20px;}
 	.clearfix{clear:both;}
 </style>
 <title>Weather Forcast</title>
 </head>
 <body>
-<div id="container">
-	<div id="header">
-        <div class="lt-box"><h1>WTF - What's The Forecast</h1> <body> Google (Maps)Weather Forecast VS Geonames Weather Forecast </body> </div>
-        
+<div data-role="page" id="container">
+	<div data-role="header">
+        <div class="lt-box"><h1>WTF - What's The Forecast</h1> <body> Google (Maps)Weather Forecast VS Geonames Weather Forecast </body> </div>        
         <div class="rt-box">
-        	<div id="panel">
-              <input id="address" type="textbox" value="" size="50">
+              <div id="panel">
+              <input id="address" type="textbox" value="" size="100">
               <input type="button" value=" Click Here" onclick="codeAddress()">
-              <span class="lbl-txt">After entering Address/Zipcode, click above button to see results</span>
-			</div>
-         </div>
-         <div class="clearfix"></div>
-    </div>
+              <span class="lbl-txt">Click here</span>
+	</div>
+        </div>
+        <div class="clearfix"></div>
+</div>
     <div class="clearfix"></div>
-    <div id="content-box">
+    <div data-role="content" id="content-box">
     	<div class="lt-box">
                         <br>  
 			<div id="map-canvas">
@@ -52,11 +52,14 @@
 
          <div class="clearfix"></div>
     </div>
-    <br><br><div id="sitecount"></div>
+    <div data-role="footer" id="sitecount"></div>
     <div id="error-section">Error : Couldnt retrieve results for the given values.</div>
 </div>
 
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=weather"></script> 
 <script>
 	var geocoder, map;
