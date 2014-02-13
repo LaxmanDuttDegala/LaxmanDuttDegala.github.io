@@ -12,9 +12,9 @@
 	#header .lt-box, #header .rt-box, #content-box .lt-box, #content-box .rt-box{float:left;}
 	#header .lt-box h1, #temperature{color:#000000; margin:0px;}
 	#header .rt-box{text-align:right;}
-	#header .lt-box, #header .rt-box, #content-box .lt-box, #content-box .rt-box{width:49%;}
+	#header .lt-box, #header .rt-box, #content-box .lt-box, #content-box .rt-box{width:30%;}
 	.lbl-txt{font-size:15px; color:#666;display:block; color:#000000;}
-	#map-canvas{width:360px; height:300px;}
+	#map-canvas{width:260px; height:200px;}
 	#temperature{padding-left:20px;}
 	.clearfix{clear:both;}
 </style>
@@ -27,7 +27,7 @@
         <div class="rt-box">
               <div id="panel">
               <input id="address" type="textbox" value="" size="100">
-              <input type="button" value="Click Me after entering Address/Zipcode" onclick="codeAddress()">
+              <input type="button" size="100" value="Click Me after entering Address/Zipcode" onclick="codeAddress()">
               <span class="lbl-txt"> </span>
 	</div>
         </div>
@@ -43,10 +43,11 @@
         </div>
         <div class="rt-box">
 			<div id="temperature" style="display:none;margin-top:100px;margin-left:80px;width:460px; height:180px;">
-                <label style="margin-left:30px">Temperature:</label> <span id="temperature-section"></span> F or <span id="temperature-section1"></span> C</br>
+                <label style="margin-left:30px">Temperature in F:</label> <span id="temperature-section"></span></br>
+                <label style="margin-left:30px">Temperature in C:</label> <span id="temperature-section1"></span></br>
                 <label style="margin-left:30px">Humidity:</label> <span id="humidity-section"></span></br>
                 <label style="margin-left:30px">Cloudy:</label> <span id="cloudy-section"></span>
-				<br><div style="margin-top:100px;"> @Powered by Geonames </div>
+				      <div style="margin-top:50px;"> @Powered by Geonames </div>
             </div>
          </div>
 
