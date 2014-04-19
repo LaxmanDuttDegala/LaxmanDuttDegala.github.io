@@ -60,7 +60,7 @@ h3 {color:#DDA0DD;}
 				  <option value="2" {{#if grpSelected}} selected="selected">2</option>
 				  <option value="3" {{#if grpSelected}} selected="selected">3</option>
 				  <option value="4" {{#if grpSelected}} selected="selected">4</option>
-				  <option value="more" {{#if grpSelected}} selected="selected">5-more</option>
+				  <option value="5-more" {{#if grpSelected}} selected="selected">5more</option>
               </select>
 			</div>
 
@@ -90,19 +90,20 @@ h3 {color:#DDA0DD;}
 				  <option value="high" {{#if grpSelected}} selected="selected">high</option>
               </select>
 			  </div>
-			  <input type="button" size="100" id="view-grp-btn" class="btn" value="Go Search for my car!">
+                          <br>
+			  <input style="margin-left:30px" type="button" size="100" id="view-grp-btn" class="btn" value="Go Search for my car!">
 			</div>
-
+                          <div class="clearfix"></div> 
           </form>
 <div class="clearfix"></div>
 </div>
 
 <div class="lt-box">
-     <h3>   <label> Please submit the button and look for the results here: </label> <span id="results"></span></br> </h3>      
+     <h3>   <label> Our Expert says: </label> <span id="results"></span></br> </h3>      
 </div>
 <div class="clearfix"></div>
-<div style="margin-top:100px;"><h3>DO YOU KNOW?</h3>Only 30% of cars in the current world are WORTH buying. Are you one among those 30%? </div>
-<br><br><br>
+<div style="margin-top:100px;"><h3>DO YOU KNOW?</h3>Only 30% of cars in the United States are WORTH buying. Are you one among those 30%? </div>
+<br><br>
 <div data-role="footer" id="sitecount"></div>
 
 <script>
@@ -127,14 +128,14 @@ $("#view-grp-btn").click(function() {
 	//	var options = {
 			type : "GET", 
 	//        url : url,		
-	    	url : "http://134.193.136.127:8983/solr/new_core/select?wt=json&indent=true&hl=true&hl.fl=,features&json.wrf=loadData",data:{"q":'cost_s:"'+selectedCost+'" AND maint_s:"'+selectedMaint+'" AND doors_s:"'+selectedDoors+'" AND persons_s:"'+selectedPersons+'" AND bootspace_s:"'+selectedBoot+'" AND safety_s:"'+selectedSafety+'"'}, 
+	    	url : "http://134.193.136.127:8983/solr/collection1_shard1_replica1/select?wt=json&indent=true&hl=true&hl.fl=,features&json.wrf=loadData",data:{"q":'cost_s:"'+selectedCost+'" AND maint_s:"'+selectedMaint+'" AND doors_s:"'+selectedDoors+'" AND persons_s:"'+selectedPersons+'" AND bootspace_s:"'+selectedBoot+'" AND safety_s:"'+selectedSafety+'"'}, 
 	//		async : false, cache : false,
 			contentType: "application/json",
 			dataType : "jsonp",
             jsonp : "callback",			
 			jsonpCallback : "loadData",
 			success : function(data, textStatus, jqXHR) {
-			//	alert("success");
+			//	alert("success")                         
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("error");
@@ -147,6 +148,7 @@ function loadData(data)
 {
 //alert("Load Data"+data);
 $.each(data.response.docs,function(i,doc){
+$("#results").empty();
 $("#results").append(doc.id);
 }
 );
@@ -178,7 +180,7 @@ return params;
      }
      if (localStorage.clickcount==1)
        {
-       document.getElementById("sitecount").innerHTML="Welcome!! It's the first time you are visiting this web page...";
+       document.getElementById("sitecount").innerHTML="Welcome!! It's the first time you are visiting this web page. Happy to See you!";
        } 
      else 
        {
